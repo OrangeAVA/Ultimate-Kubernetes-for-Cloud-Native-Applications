@@ -1,0 +1,4 @@
+lifecycle:
+  preStop:
+    exec:
+      command: ["/bin/sh", "-c", "echo Terminating...; sleep 5"]
