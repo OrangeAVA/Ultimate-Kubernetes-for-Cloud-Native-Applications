@@ -1,0 +1,1 @@
+kubectl debug -it <pod-name> --image=busybox --target=<container-name>
