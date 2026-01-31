@@ -1,0 +1,15 @@
+apiVersion: types.kubefed.io/v1beta1
+kind: FederatedDeployment
+metadata:
+  name: analytics-api
+spec:
+  template:
+    spec:
+      replicas: 2
+      containers:
+      - name: api
+        image: myacr.azurecr.io/analytics:v1
+  placement:
+    clusters:
+    - name: aks-central
+    - name: aks-east
