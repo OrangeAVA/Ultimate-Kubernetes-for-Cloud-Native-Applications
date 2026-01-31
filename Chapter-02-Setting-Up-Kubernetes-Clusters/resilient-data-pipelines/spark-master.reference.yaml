@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-master
+  labels:
+    app: spark
+    role: master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spark
+      role: master
+  template:
+    metadata:
+      labels:
+        app: spark
+        role: master
+    spec:
+      containers:
+        - name: spark-master
+          image: bde2020/spark-master:latest
+          ports:
+            - containerPort: 7077
+            - containerPort: 8080
+          env:
+            - name: SPARK_MODE
+              value: "master"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spark-master
+spec:
+  type: ClusterIP
+  ports:
+    - port: 7077
+      name: spark-master
+    - port: 8080
+      name: spark-ui
+  selector:
+    app: spark
+    role: master
