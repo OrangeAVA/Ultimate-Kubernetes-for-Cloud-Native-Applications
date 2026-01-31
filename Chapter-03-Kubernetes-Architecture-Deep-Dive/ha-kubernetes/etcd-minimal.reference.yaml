@@ -1,0 +1,9 @@
+spec:
+  containers:
+  - name: etcd
+    image: k8s.gcr.io/etcd:3.5.0
+    command:
+    - etcd
+    - --name=etcd1
+    - --initial-cluster=etcd1=https://192.168.10.11:2380,etcd2=https://192.168.10.12:2380
+    - --initial-cluster-state=new
