@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: imagepull-demo
+spec:
+  containers:
+  - name: faulty-container
+    image: myregistry.azurecr.io/nonexistent-image:latest
