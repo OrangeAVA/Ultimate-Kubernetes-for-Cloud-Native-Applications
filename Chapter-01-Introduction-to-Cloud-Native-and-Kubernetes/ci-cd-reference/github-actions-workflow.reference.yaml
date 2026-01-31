@@ -1,0 +1,11 @@
+name: CI-CD Pipeline
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: docker build -t myrepo/myapp .
+    - run: kubectl apply -f deployment.yaml
