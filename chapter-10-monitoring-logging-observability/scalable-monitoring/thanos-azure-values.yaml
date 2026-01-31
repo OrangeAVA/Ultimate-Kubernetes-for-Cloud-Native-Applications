@@ -1,0 +1,7 @@
+thanos:
+  objectStorageConfig:
+    type: AZURE
+    config:
+      storage_account: <azure-storage-account>
+      container: thanos-metrics
+      storage_account_key: <key>
