@@ -1,0 +1,6 @@
+# MULTI-CLUSTER AUTOMATION
+
+environments/
+├── dev/main.tf
+├── qa/main.tf
+└── prod/main.tf
