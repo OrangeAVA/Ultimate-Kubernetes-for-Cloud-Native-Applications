@@ -1,0 +1,22 @@
+name: AKS Infra + Helm Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+      - run: terraform -chdir=terraform init
+      - run: terraform -chdir=terraform apply -auto-approve
+
+  helm:
+    needs: terraform
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+          helm upgrade --install myapp ./helm/myapp
