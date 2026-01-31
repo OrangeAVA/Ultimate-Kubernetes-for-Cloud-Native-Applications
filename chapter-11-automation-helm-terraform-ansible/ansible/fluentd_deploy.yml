@@ -1,0 +1,22 @@
+- name: Deploy Fluentd to AKS Nodes
+  hosts: aks_nodes
+  become: yes
+
+  tasks:
+    - name: Ensure Fluentd config directory exists
+      file:
+        path: /etc/fluentd
+        state: directory
+        mode: '0755'
+
+    - name: Copy Fluentd config file
+      copy:
+        src: files/fluentd.conf
+        dest: /etc/fluentd/fluentd.conf
+
+    - name: Install Fluentd container
+      shell: >
+        docker run -d --name fluentd
+        -v /etc/fluentd:/fluentd
+        -p 24224:24224
+        fluent/fluentd:v1.14-debian-1
