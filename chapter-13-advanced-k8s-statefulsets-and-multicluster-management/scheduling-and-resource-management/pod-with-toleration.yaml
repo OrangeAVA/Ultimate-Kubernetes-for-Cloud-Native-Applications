@@ -1,0 +1,5 @@
+tolerations:
+- key: "accelerator"
+  operator: "Equal"
+  value: "nvidia-gpu"
+  effect: "NoSchedule"
