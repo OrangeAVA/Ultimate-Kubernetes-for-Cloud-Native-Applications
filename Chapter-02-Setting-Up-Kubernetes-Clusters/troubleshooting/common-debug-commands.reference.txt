@@ -1,0 +1,6 @@
+# Troubleshooting
+
+kubectl get nodes
+kubectl get pods -n kube-system
+journalctl -u kubelet --no-pager | tail -n 50
+kubectl logs <pod-name> -n <namespace>
