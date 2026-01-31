@@ -1,0 +1,2 @@
+kubectl taint nodes node-1 key=value:NoSchedule
+kubectl cordon node-1
