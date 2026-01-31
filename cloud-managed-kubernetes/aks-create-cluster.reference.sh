@@ -1,0 +1,6 @@
+az aks create \
+--resource-group myResourceGroup \
+--name myAKSCluster \
+--node-count 3 \
+--enable-addons monitoring \
+--generate-ssh-keys
