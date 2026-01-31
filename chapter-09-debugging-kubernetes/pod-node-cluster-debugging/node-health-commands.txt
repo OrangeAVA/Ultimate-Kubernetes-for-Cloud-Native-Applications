@@ -1,0 +1,3 @@
+kubectl describe node <node-name>
+kubectl top nodes
+kubectl top pods
