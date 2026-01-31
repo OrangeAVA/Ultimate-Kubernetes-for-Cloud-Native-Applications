@@ -1,0 +1,11 @@
+groups:
+- name: pod-alerts
+  rules:
+  - alert: HighPodMemoryUsage
+    expr: (container_memory_usage_bytes{container!="",pod!=""}
+          / container_spec_memory_limit_bytes{container!="",pod!=""}) > 0.85
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High memory usage in pod {{ $labels.pod }}"
