@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: crashloop-demo
+spec:
+  containers:
+  - name: faulty-app
+    image: busybox
+    command: ["sh", "-c", "exit 1"]
+    livenessProbe:
+      exec:
+        command: ["sh", "-c", "exit 1"]
+      initialDelaySeconds: 5
+      periodSeconds: 5
