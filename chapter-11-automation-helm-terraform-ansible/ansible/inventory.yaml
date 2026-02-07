@@ -1,0 +1,6 @@
+all:
+  children:
+    aks_nodes:
+      hosts:
+        node1.yourdomain.com:
+        node2.yourdomain.com:

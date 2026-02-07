@@ -1,0 +1,2 @@
+WASM workloads can run via Wasmtime, WasmEdge, Spin.
+Ideal for fast-startup, edge, and plugin-style workloads.

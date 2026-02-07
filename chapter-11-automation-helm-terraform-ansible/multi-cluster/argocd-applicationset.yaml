@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: multi-cluster-sync
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: dev
+            url: https://kube.dev.example.com
+          - cluster: prod
+            url: https://kube.prod.example.com

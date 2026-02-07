@@ -1,0 +1,14 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: servicebus-scaledobject
+spec:
+  scaleTargetRef:
+    name: azure-servicebus-worker
+  minReplicaCount: 0
+  maxReplicaCount: 10
+  triggers:
+  - type: azure-servicebus
+    metadata:
+      queueName: "my-queue"
+      messageCount: "5"

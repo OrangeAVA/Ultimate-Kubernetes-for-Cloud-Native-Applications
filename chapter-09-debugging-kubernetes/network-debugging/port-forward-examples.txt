@@ -1,0 +1,2 @@
+kubectl port-forward svc/kafka-broker 9092:9092
+kubectl port-forward pod/pod-a 8080:80

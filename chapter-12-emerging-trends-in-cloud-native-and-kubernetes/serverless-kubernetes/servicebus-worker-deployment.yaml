@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-servicebus-worker
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: azure-worker
+  template:
+    metadata:
+      labels:
+        app: azure-worker
+    spec:
+      containers:
+      - name: worker
+        image: youracr.azurecr.io/azure-servicebus-worker:latest
+        env:
+        - name: SERVICE_BUS_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: servicebus-secret
+              key: connectionString
+        - name: QUEUE_NAME
+          value: "my-queue"

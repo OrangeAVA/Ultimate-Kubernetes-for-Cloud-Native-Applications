@@ -1,0 +1,23 @@
+name: Kubernetes CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker Image
+        run: docker build -t sample-k8s-app:latest .
+
+      - name: Push Docker Image
+        run: docker push sample-k8s-app:latest
+
+      - name: Deploy to Kubernetes
+        run: kubectl apply -f k8s/deployment.yaml

@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iot-sensor-app
+  namespace: edge-iot
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: sensor
+        image: myregistry.azurecr.io/iot-sensor:latest
+        env:
+        - name: SENSOR_TYPE
+          value: "temperature"

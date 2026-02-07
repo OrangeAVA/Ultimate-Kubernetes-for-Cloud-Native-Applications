@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    spec:
+      containers:
+      - name: nvidia-device-plugin
+        image: nvidia/k8s-device-plugin:v0.12.3

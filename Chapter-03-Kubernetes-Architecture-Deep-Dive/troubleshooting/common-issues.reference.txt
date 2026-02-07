@@ -1,0 +1,4 @@
+Pod stuck in Pending → check resources, affinity, taints, PVC
+API timeout → check etcd health
+Service unreachable → validate kube-proxy & CNI
+Leader election flapping → inspect controller-manager logs

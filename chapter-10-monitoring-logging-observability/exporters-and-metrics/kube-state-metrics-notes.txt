@@ -1,0 +1,3 @@
+Tracks Kubernetes object states
+Deployments, Pods, ReplicaSets
+Resource requests and limits
