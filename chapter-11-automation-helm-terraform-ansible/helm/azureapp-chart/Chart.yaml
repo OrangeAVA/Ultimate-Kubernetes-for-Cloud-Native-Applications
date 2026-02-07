@@ -1,0 +1,7 @@
+# YAML Lab – Azure AKS Helm Chart
+
+apiVersion: v2
+name: azureapp
+description: Sample Helm chart for AKS deployment
+version: 0.1.0
+appVersion: "1.0"
