@@ -1,0 +1,12 @@
+environments:
+  prod:
+    values:
+      - values-prod.yaml
+  dev:
+    values:
+      - values-dev.yaml
+
+releases:
+  - name: airflow
+    namespace: data-pipelines
+    chart: bitnami/airflow
