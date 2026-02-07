@@ -1,0 +1,3 @@
+Exposes CPU, memory, disk, and network metrics
+Runs as a DaemonSet
+Default endpoint: :9100/metrics
