@@ -1,0 +1,13 @@
+apiVersion: types.kubefed.io/v1beta1
+kind: FederatedConfigMap
+metadata:
+  name: env-settings
+spec:
+  template:
+    data:
+      ENV: "production"
+      REGION: "auto"
+  placement:
+    clusters:
+    - name: aks-east
+    - name: onprem-eu
