@@ -1,0 +1,17 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: resnet50
+  namespace: kubeflow-user
+spec:
+  predictor:
+    containers:
+    - name: kserve-container
+      image: <youracr>.azurecr.io/resnet50:latest
+      resources:
+        limits:
+          cpu: "1"
+          memory: "2Gi"
+          nvidia.com/gpu: 1
+      ports:
+      - containerPort: 8080
