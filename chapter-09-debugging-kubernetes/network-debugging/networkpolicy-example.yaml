@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-producer-to-kafka
+  namespace: kafka
+spec:
+  podSelector:
+    matchLabels:
+      app: kafka
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: kafka-producers
