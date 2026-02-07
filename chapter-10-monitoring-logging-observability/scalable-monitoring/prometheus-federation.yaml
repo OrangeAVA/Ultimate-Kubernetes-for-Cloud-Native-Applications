@@ -1,0 +1,8 @@
+- job_name: 'federate_cluster_aks-prod'
+  metrics_path: '/federate'
+  params:
+    'match[]':
+      - '{__name__=~".+"}'
+  static_configs:
+    - targets:
+      - 'prometheus.aks-prod.svc:9090'
