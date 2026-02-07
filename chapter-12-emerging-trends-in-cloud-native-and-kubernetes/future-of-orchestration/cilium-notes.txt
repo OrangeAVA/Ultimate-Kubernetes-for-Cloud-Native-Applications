@@ -1,0 +1,3 @@
+Cilium replaces kube-proxy using eBPF.
+Provides L3–L7 network policy enforcement.
+Enables Hubble observability without sidecars.
